@@ -10,8 +10,8 @@ import java.util.List;
 public class GroupController {
 
     @RequestMapping(method = RequestMethod.GET, value = "allProductGroups")
-    public List<ProductDto> getAllProductGroups(){
-        return new ArrayList<ProductDto>() ;
+    public List<GroupDto> getAllProductGroups(){
+        return new ArrayList<GroupDto>() ;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getGroup", consumes = "application/json")
