@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/ecommercee")
+@RequestMapping("/v1/ecommercee")
 @Transactional
 public class ProductController {
 
