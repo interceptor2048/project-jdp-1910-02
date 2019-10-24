@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 public class Group {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
