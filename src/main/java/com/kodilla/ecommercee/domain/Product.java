@@ -7,7 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "PRODUCT")
+@Table(name = "product")
 @Getter
 @AllArgsConstructor
 public class Product {
@@ -29,7 +29,7 @@ public class Product {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "Products_list")
+    @JoinColumn(name = "products_list")
     private ProductsList productsList;
 
 }
