@@ -28,8 +28,4 @@ public class Product {
     @Column(name = "description")
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "products_list")
-    private ProductsList productsList;
-
 }
