@@ -1,9 +1,6 @@
 package com.kodilla.ecommercee;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -25,17 +22,17 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "newProduct", consumes = "application/json")
-    public void createNewProduct(){
+    public void createNewProduct(@RequestBody ProductDto productDto){
 
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateProduct", consumes = "application/json")
-    public void updateProduct(){
+    public void updateProduct(@RequestBody ProductDto productDto){
 
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct", consumes = "application/json")
-    public void deleteProduct(){
+    public void deleteProduct(@RequestParam Long productId){
 
     }
 }
