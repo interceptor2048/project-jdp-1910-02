@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee.user;
+package com.kodilla.ecommercee.dto;
 
 public class UserDto {
     private String userName;

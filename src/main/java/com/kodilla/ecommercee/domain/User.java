@@ -1,4 +1,4 @@
-package com.kodilla.ecommercee.user;
+package com.kodilla.ecommercee.domain;
 
 public class User {
     private String userName;
