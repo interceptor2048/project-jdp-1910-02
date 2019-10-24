@@ -15,7 +15,7 @@ public class OrderController {
         return new ArrayList<>();
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createOrder")
+    @RequestMapping(method = RequestMethod.POST, value = "createOrder", consumes = "application/json")
     public void createOrder(@RequestBody OrderDto orderDto) {
     }
 
@@ -24,7 +24,7 @@ public class OrderController {
         return new OrderDto(1L, "test_title", "test_content");
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
+    @RequestMapping(method = RequestMethod.PUT, value = "updateOrder", consumes = "application/json")
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         return new OrderDto(1L, "Edited test title", "test content");
     }
