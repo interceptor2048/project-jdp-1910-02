@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/eecommercee")
+@RequestMapping("/v1/ecommercee")
 public class GroupController {
 
     @RequestMapping(method = RequestMethod.GET, value = "allProductGroups")
