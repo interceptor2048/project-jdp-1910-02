@@ -1,21 +1,30 @@
 package com.kodilla.ecommercee.user;
 
+import lombok.AllArgsConstructor;
+import javax.persistence.*;
+
+@Entity
+@AllArgsConstructor
+@Table(name = "USER")
 public class User {
     private String userName;
-    private String userId;
+    private Long userId;
     private boolean isBlocked;
 
-    public User(String userName, String userId) {
-        this.userName = userName;
-        this.userId = userId;
-        this.isBlocked = false;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name = "User_id")
+    public Long getUserId() {
+        return userId;
     }
 
+    @Column(name = "User_name")
     public String getUserName() {
         return userName;
     }
 
-    public String getUserId() {
-        return userId;
+    @Column(name = "isBlocked")
+    public boolean getIsBlocked() {
+        return isBlocked;
     }
 }
