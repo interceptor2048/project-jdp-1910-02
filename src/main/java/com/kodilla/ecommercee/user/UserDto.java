@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserDto {
     private String userName;
-    private String userId;
-    private boolean isBlocked;
+    private long userId;
+   // private boolean isBlocked;
 
 }

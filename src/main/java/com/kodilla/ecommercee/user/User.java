@@ -8,8 +8,7 @@ import javax.persistence.*;
 @Table(name = "USER")
 public class User {
     private String userName;
-    private Long userId;
-    private boolean isBlocked;
+    private long userId;
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -21,10 +20,5 @@ public class User {
     @Column(name = "User_name")
     public String getUserName() {
         return userName;
-    }
-
-    @Column(name = "isBlocked")
-    public boolean getIsBlocked() {
-        return isBlocked;
     }
 }
