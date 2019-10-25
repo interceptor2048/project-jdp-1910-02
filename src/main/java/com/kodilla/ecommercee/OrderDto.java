@@ -1,8 +1,10 @@
 package com.kodilla.ecommercee;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class OrderDto {
     private Long id;
     private String title;

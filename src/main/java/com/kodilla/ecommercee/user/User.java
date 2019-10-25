@@ -1,5 +1,14 @@
 package com.kodilla.ecommercee.user;
 
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Getter
+@Setter
+@Entity
+@Table(name="users")
 public class User {
     private String userName;
     private String userId;
@@ -11,11 +20,32 @@ public class User {
         this.isBlocked = false;
     }
 
+    public User() {
+    }
+
+    @Column (name="user_name")
+    @NotNull
     public String getUserName() {
         return userName;
     }
 
+    @Column (name = "user_id")
+    @Id
+    @GeneratedValue
+    @NotNull
     public String getUserId() {
         return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setBlocked(boolean blocked) {
+        isBlocked = blocked;
     }
 }
