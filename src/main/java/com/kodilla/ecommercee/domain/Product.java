@@ -7,11 +7,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
@@ -19,6 +18,7 @@ public class Product {
     private String name;
     private double price;
     private String description;
+    private List<Cart> carts;
 
     @Column(name = "product_id")
     @Id
@@ -44,8 +44,17 @@ public class Product {
         return description;
     }
 
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "products")
+    public List<Cart> getCarts() {
+        return carts;
+    }
+
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setCarts(List<Cart> carts) {
+        this.carts = carts;
     }
 
     public void setName(String name) {
@@ -59,4 +68,5 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

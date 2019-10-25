@@ -1,6 +1,8 @@
 package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.user.User;
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -37,10 +39,10 @@ public class Cart {
         return user;
     }
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(
-            name="join_product_cart",
-            joinColumns = {@JoinColumn(name="cart_id",referencedColumnName = "cart_id")},
+    @ManyToMany (cascade = CascadeType.PERSIST)
+    @JoinTable (
+            name="join_cart_product",
+            joinColumns = {@JoinColumn(name = "cart_id",referencedColumnName = "cart_id")},
             inverseJoinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")}
     )
     public List<Product> getProducts() {

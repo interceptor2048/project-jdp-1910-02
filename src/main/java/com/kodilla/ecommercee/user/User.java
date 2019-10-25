@@ -5,8 +5,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Getter
-@Setter
 @Entity
 @Table(name="users")
 public class User {
@@ -35,6 +33,10 @@ public class User {
     @NotNull
     public String getUserId() {
         return userId;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
     }
 
     public void setUserId(String userId) {
