@@ -9,7 +9,9 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Setter
+@Entity
+@Table (name = "carts")
 public class Cart {
     private long id;
     private User user;
@@ -21,15 +23,32 @@ public class Cart {
         this.products = new ArrayList<>();
     }
 
+    public Cart() {
+    }
+
+    @GeneratedValue
+    @Id
+    @NotNull
+    @Column(name = "cartId")
     public long getId() {
         return id;
     }
 
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name="userId")
     public User getUser() {
         return user;
     }
 
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name="join_product_cart",
+            joinColumns = {@JoinColumn(name="cart_id",referencedColumnName = "cart_id")},
+            inverseJoinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "product_id")}
+    )
     public List<Product> getProducts() {
         return products;
     }
+
+
 }
