@@ -1,11 +1,11 @@
-package com.kodilla.ecommercee.user;
+package com.kodilla.ecommercee.domain.dto;
 
-public class User {
+public class UserDto {
     private String userName;
     private String userId;
     private boolean isBlocked;
 
-    public User(String userName, String userId) {
+    public UserDto(String userName, String userId) {
         this.userName = userName;
         this.userId = userId;
         this.isBlocked = false;
@@ -17,5 +17,9 @@ public class User {
 
     public String getUserId() {
         return userId;
+    }
+
+    public boolean isBlocked() {
+        return isBlocked;
     }
 }

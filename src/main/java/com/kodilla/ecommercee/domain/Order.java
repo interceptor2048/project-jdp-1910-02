@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-import com.kodilla.ecommercee.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+@Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,13 +28,7 @@ public class Order {
     @Column(name = "totalcost")
     private double totalCost;
 
-/*
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
-
-    !!>> na ten moment nie jest gotowa klasa User, stąd komentarz
-    Inaczej wysypuje sie aplikacja. Jak tylko będzie klasa to dodam zależność<<!!
- */
-
+    //@ManyToOne
+    //@JoinColumn(name = "user_id")
+    //private User user;
 }
