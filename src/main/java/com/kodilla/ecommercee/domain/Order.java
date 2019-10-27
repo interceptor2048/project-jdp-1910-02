@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "order")
+@Entity
+@Table(name = "order")
 public class Order {
 
     @Id
@@ -24,10 +25,16 @@ public class Order {
     @Column(name = "content")
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "totalcost")
+    private double totalCost;
+
+/*
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @Column(name = "totalcost")
-    private double totalCost;
+    !!>> na ten moment nie jest gotowa klasa User, stąd komentarz
+    Inaczej wysypuje sie aplikacja. Jak tylko będzie klasa to dodam zależność<<!!
+ */
+
 }
