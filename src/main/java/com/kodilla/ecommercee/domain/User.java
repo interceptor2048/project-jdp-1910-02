@@ -1,11 +1,16 @@
-package com.kodilla.ecommercee.user;
+package com.kodilla.ecommercee.domain;
 
-public class UserDto {
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
+
+public class User {
     private String userName;
     private String userId;
     private boolean isBlocked;
 
-    public UserDto(String userName, String userId) {
+    public User(String userName, String userId) {
         this.userName = userName;
         this.userId = userId;
         this.isBlocked = false;
@@ -17,9 +22,5 @@ public class UserDto {
 
     public String getUserId() {
         return userId;
-    }
-
-    public boolean isBlocked() {
-        return isBlocked;
     }
 }
