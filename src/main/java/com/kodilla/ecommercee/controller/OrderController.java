@@ -1,35 +1,47 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.controller.exception.OrderNotFoundException;
 import com.kodilla.ecommercee.domain.dto.OrderDto;
+import com.kodilla.ecommercee.mapper.OrderMapper;
+import com.kodilla.ecommercee.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/ecommercee")
+@RequestMapping("/v1/order")
 public class OrderController {
+
+    @Autowired
+    OrderService orderService;
+
+    @Autowired
+    OrderMapper orderMapper;
 
     @RequestMapping(method = RequestMethod.GET, value = "getOrders")
     public List<OrderDto> getOrders() {
-        return new ArrayList<>();
+        return orderMapper.mapToOrderDtoList(orderService.getOrders());
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createOrder", consumes = "application/json")
     public void createOrder(@RequestBody OrderDto orderDto) {
+        orderService.saveOrder(orderMapper.mapToOrder(orderDto));
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
-    public OrderDto getOrder(@RequestParam Long orderId) {
-        return new OrderDto(1L, "test_title", "test_content");
+    public OrderDto getOrder(@RequestParam Long orderId) throws OrderNotFoundException {
+        return orderMapper.mapToOrderDto(orderService.getOrder(orderId).orElseThrow(OrderNotFoundException::new));
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "updateOrder", consumes = "application/json")
+    @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
-        return new OrderDto(1L, "Edited test title", "test content");
+        return orderMapper.mapToOrderDto(orderService.saveOrder(orderMapper.mapToOrder(orderDto)));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
     public void deleteOrder(@RequestParam Long orderId) {
+        orderService.deleteOrder(orderId);
     }
 }
