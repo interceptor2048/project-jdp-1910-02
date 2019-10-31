@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class UserDto {
     private String userName;
     private long userId;
+    private boolean isBlocked;
 }
