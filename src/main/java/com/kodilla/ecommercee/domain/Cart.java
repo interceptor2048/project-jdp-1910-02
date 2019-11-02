@@ -17,11 +17,11 @@ public class Cart {
     @GeneratedValue
     @Id
     @NotNull
-    @Column(name = "cart_id")
+    @Column(name = "id")
     private long id;
 
     @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cart_name")
+    @JoinColumn(name = "username")
     private User user;
 
     @OneToMany(

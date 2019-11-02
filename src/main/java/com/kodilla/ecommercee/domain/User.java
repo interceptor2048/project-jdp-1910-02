@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Getter
 @Setter
-@Table (name = "user")
+@Table (name = "users")
 public class User {
 
     @Column (name="name")
