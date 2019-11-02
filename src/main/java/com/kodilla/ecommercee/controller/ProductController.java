@@ -19,10 +19,10 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getProduct")
     public ProductDto getProduct(@RequestParam Long productId) {
-        return new ProductDto();
+        return new ProductDto(1L,"test product",2.32,"test descripton");
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "newProduct", consumes = "application/json")
+    @RequestMapping(method = RequestMethod.POST, value = "createProduct", consumes = "application/json")
     public void createNewProduct(@RequestBody ProductDto productDto) {
 
     }
