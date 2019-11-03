@@ -1,21 +1,26 @@
 package com.kodilla.ecommercee.domain.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class UserDto {
     private String userName;
-    private String userId;
+    private Long userId;
     private boolean isBlocked;
 
-    public UserDto(String userName, String userId) {
+    public UserDto(String userName, Long userId, Boolean isBlocked) {
         this.userName = userName;
         this.userId = userId;
-        this.isBlocked = false;
+        this.isBlocked = isBlocked;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
