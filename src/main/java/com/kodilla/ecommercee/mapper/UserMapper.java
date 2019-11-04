@@ -24,10 +24,4 @@ public class UserMapper {
                 user.isBlocked()
         );
     }
-
-    public List<UserDto> mapToUserDtoList(final List<User> userList) {
-        return userList.stream()
-                .map(user -> new UserDto(user.getUserName(), user.getUserId(),user.isBlocked()))
-                .collect(Collectors.toList());
-    }
 }

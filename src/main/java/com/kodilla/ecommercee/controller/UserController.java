@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.controller;
 
+import com.kodilla.ecommercee.controller.exception.UserNotAuthorisedException;
 import com.kodilla.ecommercee.controller.exception.UserNotFoundException;
 import com.kodilla.ecommercee.domain.Token;
 import com.kodilla.ecommercee.domain.dto.UserDto;
@@ -35,12 +36,12 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value="getToken")
-    public String getToken (@RequestParam Long userId, String userName) throws UserNotFoundException{
+    public String getToken (@RequestParam Long userId, String userName){
         UserDto tempUserDto = mapper.mapToUserDto(service.findUser(userId).orElseThrow(UserNotFoundException::new));
         if (tempUserDto.getUserName().equals(userName)) {
             Token token = new Token(LocalTime.now(),LocalTime.now().plus(1,ChronoUnit.HOURS));
             return token.getToken();
         }
-        else return "Invalid user data";
+        else throw new UserNotAuthorisedException();
     }
 }
