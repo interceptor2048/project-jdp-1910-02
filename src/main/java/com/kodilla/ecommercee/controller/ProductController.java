@@ -20,7 +20,7 @@ public class ProductController {
     @Autowired
     private ProductMapper mapper;
 
-    @RequestMapping(method = RequestMethod.GET, value = "getAllProducts", consumes = "application/json")
+    @RequestMapping(method = RequestMethod.GET, value = "getAllProducts")
     public List<ProductDto> getAllProducts() {
         return mapper.mapToProductDtoList(service.getProducts());
     }
