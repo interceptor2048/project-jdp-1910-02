@@ -33,7 +33,7 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "group_id")
-    private Group group;
+    private Group productGroup;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
