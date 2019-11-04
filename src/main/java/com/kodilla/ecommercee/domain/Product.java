@@ -13,7 +13,6 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Product {
 
     @Column(name = "id")
@@ -39,4 +38,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "cart_id")
     private Cart cart;
+
+    public Product(Long id, String name, double price, String description) {
+    }
 }
