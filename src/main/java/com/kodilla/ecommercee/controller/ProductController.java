@@ -6,12 +6,10 @@ import com.kodilla.ecommercee.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/ecommercee")
-@Transactional
+@RequestMapping("/v1/ecommercee/product")
 public class ProductController {
 
     @Autowired
