@@ -15,7 +15,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.PUT, value ="blockUser")
     public UserDto blockUser (@RequestParam String userId) {
-        return new UserDto("testUser","testUserId");
+        return new UserDto("testUser", "testUserId", true);
     }
 
     @RequestMapping(method = RequestMethod.GET, value="getToken")
