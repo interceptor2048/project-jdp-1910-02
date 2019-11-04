@@ -24,8 +24,8 @@ public class GroupController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getGroup")
-    public GroupDto getGroup(@RequestParam Long groupId) throws GroupNotFoundException {
-        return mapper.mapToGroupDto(service.getGroup(groupId).orElseThrow(GroupNotFoundException::new));
+    public GroupDto getGroup(@RequestParam Long groupId) throws NotFoundException {
+        return mapper.mapToGroupDto(service.getGroup(groupId).orElseThrow(NotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "addGroup", consumes = "application/json")
