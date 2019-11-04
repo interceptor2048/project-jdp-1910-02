@@ -16,6 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping ("/v1/ecommercee/user")
+
 public class UserController {
     @Autowired
     UserService service;

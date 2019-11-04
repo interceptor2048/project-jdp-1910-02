@@ -21,7 +21,7 @@ public class Group {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "group")
+    @OneToMany(mappedBy = "productGroup")
     private List<Product> products = new ArrayList<>();
 
     public Group(String name, String description) {
