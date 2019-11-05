@@ -11,6 +11,7 @@ import lombok.Setter;
 @Setter
 public class UserDto {
     private String userName;
-    private String userId;
+    private Long userId;
     private boolean isBlocked;
+
 }
