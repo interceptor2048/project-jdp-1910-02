@@ -24,9 +24,7 @@ public class Cart {
     @JoinColumn(name = "username")
     private User user;
 
-    @OneToMany(
-            mappedBy = "cart"
-    )
+    @OneToMany(mappedBy = "cart")
     private List<Product> products;
 
     public Cart(long id, User user) {

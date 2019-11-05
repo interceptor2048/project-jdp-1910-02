@@ -23,13 +23,14 @@ public class Order {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "content")
-    private String content;
-
     @Column(name = "totalcost")
     private double totalCost;
 
-    //@ManyToOne
-    //@JoinColumn(name = "user_id")
-    //private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 }
