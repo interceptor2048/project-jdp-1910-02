@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/ecommercee")
+@RequestMapping("/v1/ecommercee/product")
 public class ProductController {
 
     @Autowired
