@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
 
 @Component
 public class OrderMapper {
-    //Cart cart = cartMapper.mapToCart(orderDto.getCartDto());
-
     public Order mapToOrder(final OrderDto orderDto) {
         return new Order(orderDto.getId(),
                 orderDto.getTitle(),

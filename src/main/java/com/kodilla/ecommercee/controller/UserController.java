@@ -9,6 +9,7 @@ import com.kodilla.ecommercee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
@@ -36,11 +37,11 @@ public class UserController {
     }
 
     @GetMapping(path= "/getToken")
-    public String getToken(@RequestParam Long userId, String userName) throws UserNotAuthorisedException, UserNotFoundException {
+    public String getToken(@RequestParam Long userId, String userName) throws UserNotAuthorisedException, UserNotFoundException, NoSuchAlgorithmException {
         UserDto tempUserDto = mapper.mapToUserDto(service.findUser(userId).orElseThrow(UserNotFoundException::new));
         if (tempUserDto.getUserName().equals(userName)) {
             Token token = new Token(LocalTime.now(), LocalTime.now().plus(1, ChronoUnit.HOURS));
-            return token.getToken();
+            return token.getGeneratedToken();
         } else throw new UserNotAuthorisedException();
     }
 }
