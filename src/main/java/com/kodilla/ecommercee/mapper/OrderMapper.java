@@ -1,6 +1,5 @@
 package com.kodilla.ecommercee.mapper;
 
-import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.Order;
 import com.kodilla.ecommercee.domain.dto.OrderDto;
 import org.springframework.stereotype.Component;
@@ -10,7 +9,6 @@ import java.util.stream.Collectors;
 
 @Component
 public class OrderMapper {
-
     //Cart cart = cartMapper.mapToCart(orderDto.getCartDto());
 
     public Order mapToOrder(final OrderDto orderDto) {

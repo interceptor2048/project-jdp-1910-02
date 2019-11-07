@@ -14,10 +14,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "orders")
 public class Order {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "title")
