@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
-
     @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
