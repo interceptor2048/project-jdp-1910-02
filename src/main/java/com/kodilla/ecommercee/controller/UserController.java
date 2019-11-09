@@ -24,19 +24,19 @@ public class UserController {
     @Autowired
     UserMapper mapper;
 
-    @PostMapping(path= "/createUser", consumes = APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/createUser", consumes = APPLICATION_JSON_VALUE)
     public void createUser(@RequestBody UserDto userDto) {
         service.saveUser(mapper.mapToUser(userDto));
     }
 
-    @PutMapping(path= "/blockUser")
+    @PutMapping(path = "/blockUser")
     public UserDto blockUser(@RequestParam Long userId) throws UserNotFoundException {
         UserDto tempUserDto = mapper.mapToUserDto(service.findUser(userId).orElseThrow(UserNotFoundException::new));
         tempUserDto.setBlocked(true);
         return mapper.mapToUserDto(service.saveUser(mapper.mapToUser(tempUserDto)));
     }
 
-    @GetMapping(path= "/getToken")
+    @GetMapping(path = "/getToken")
     public String getToken(@RequestParam Long userId, String userName) throws UserNotAuthorisedException, UserNotFoundException, NoSuchAlgorithmException {
         UserDto tempUserDto = mapper.mapToUserDto(service.findUser(userId).orElseThrow(UserNotFoundException::new));
         if (tempUserDto.getUserName().equals(userName)) {
