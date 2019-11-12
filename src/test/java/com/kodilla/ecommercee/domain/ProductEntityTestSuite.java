@@ -1,8 +1,8 @@
 package com.kodilla.ecommercee.domain;
-import com.kodilla.ecommercee.repository.GroupRepository;
-import com.kodilla.ecommercee.repository.ProductRepository;
+
 import com.kodilla.ecommercee.service.GroupService;
 import com.kodilla.ecommercee.service.ProductService;
+
 import org.h2.tools.Server;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -41,7 +41,5 @@ public class ProductEntityTestSuite {
         groupService.saveGroup(rtv);
         productService.saveProduct(monitor);
         //Then
-
-        while(true);
     }
 }
