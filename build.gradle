@@ -37,4 +37,6 @@ dependencies {
     implementation('mysql:mysql-connector-java')
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    testCompile group: 'com.h2database', name: 'h2'
 }
