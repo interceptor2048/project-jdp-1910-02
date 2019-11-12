@@ -41,5 +41,6 @@ public class ProductEntityTestSuite {
         groupService.saveGroup(rtv);
         productService.saveProduct(monitor);
         //Then
+        //while (true);
     }
 }
