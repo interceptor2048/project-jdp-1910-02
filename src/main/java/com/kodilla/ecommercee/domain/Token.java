@@ -14,10 +14,17 @@ public class Token {
     private String generatedToken;
     private LocalTime generated;
     private LocalTime expires;
+    private Random rand;
 
-    private Random rand = SecureRandom.getInstanceStrong();
+    {
+        try {
+            rand = SecureRandom.getInstanceStrong();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+    }
 
-    public Token(LocalTime generated, LocalTime expires) throws NoSuchAlgorithmException {
+    public Token(LocalTime generated, LocalTime expires) {
         this.generatedToken = generateToken(15);
         this.generated = generated;
         this.expires = expires;
