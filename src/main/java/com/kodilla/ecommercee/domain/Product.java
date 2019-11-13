@@ -39,7 +39,7 @@ public class Product {
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    public Product(@NotNull String name, @NotNull double price, String description, Group productGroup, Cart cart) {
+    public Product(String name, double price, String description, Group productGroup, Cart cart) {
         this.name = name;
         this.price = price;
         this.description = description;
