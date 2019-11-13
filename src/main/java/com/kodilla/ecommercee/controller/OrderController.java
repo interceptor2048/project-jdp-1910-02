@@ -32,8 +32,8 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getOrder")
-    public OrderDto getOrder(@RequestParam Long orderId) throws OrderNotFoundException {
-        return orderMapper.mapToOrderDto(orderService.getOrder(orderId).orElseThrow(OrderNotFoundException::new));
+    public OrderDto getOrder(@RequestParam Long orderId) throws NotFoundException {
+        return orderMapper.mapToOrderDto(orderService.getOrder(orderId).orElseThrow(NotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")

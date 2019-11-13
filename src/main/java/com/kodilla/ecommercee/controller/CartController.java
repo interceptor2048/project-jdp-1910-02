@@ -45,15 +45,15 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "addToCart", consumes = "application/json")
-    public void addToCart(@RequestParam Long cartId, @RequestBody ProductDto productDto) {
-        Cart updatedCart = cartService.getCart(cartId).get();
+    public void addToCart(@RequestParam Long cartId, @RequestBody ProductDto productDto) throws NotFoundException{
+        Cart updatedCart = cartService.getCart(cartId).orElseThrow(NotFoundException::new);
         updatedCart.getProducts().add(productMapper.mapToProduct(productDto));
         cartService.saveCart(updatedCart);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteFromCart")
-    public void deleteProduct(@RequestParam Long cartId, @RequestParam Long productId) {
-        Cart updatedCart = cartService.getCart(cartId).get();
+    public void deleteProduct(@RequestParam Long cartId, @RequestParam Long productId) throws NotFoundException {
+        Cart updatedCart = cartService.getCart(cartId).orElseThrow(NotFoundException::new);
         updatedCart.getProducts().removeIf(t -> productId.equals(t.getId()));
         cartService.saveCart(updatedCart);
     }
