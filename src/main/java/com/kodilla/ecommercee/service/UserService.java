@@ -3,25 +3,30 @@ package com.kodilla.ecommercee.service;
 import com.kodilla.ecommercee.domain.User;
 import com.kodilla.ecommercee.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class UserService {
+
     @Autowired
-    UserRepository repository;
+    UserRepository userRepository;
 
     public List<User> getAllUsers() {
-        return repository.findAll();
+        return userRepository.findAll();
     }
 
-    public Optional<User> findUser(Long userId) {
-        return repository.findById(userId);
+    public Optional<User> findUser(final Long userId) {
+        return userRepository.findById(userId);
     }
 
-    public User saveUser(User user) {
-        return repository.save(user);
+    public User saveUser(final User user) {
+        return userRepository.save(user);
+    }
+
+    public void deleteUser(final Long id) {
+      userRepository.deleteById(id);
     }
 }
