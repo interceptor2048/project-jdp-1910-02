@@ -14,12 +14,10 @@ import com.kodilla.ecommercee.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/v1/ecommercee")
+@RequestMapping("/v1/ecommercee/cart")
 public class CartController {
     @Autowired
     CartMapper cartMapper;
@@ -45,7 +43,7 @@ public class CartController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "addToCart", consumes = "application/json")
-    public void addToCart(@RequestParam Long cartId, @RequestBody ProductDto productDto) throws NotFoundException{
+    public void addToCart(@RequestParam Long cartId, @RequestBody ProductDto productDto) throws NotFoundException {
         Cart updatedCart = cartService.getCart(cartId).orElseThrow(NotFoundException::new);
         updatedCart.getProducts().add(productMapper.mapToProduct(productDto));
         cartService.saveCart(updatedCart);
@@ -63,9 +61,8 @@ public class CartController {
         StringBuilder sb = new StringBuilder();
         Cart cart = cartService.getCart(cartId).get();
         double total = cart.getProducts().stream().map(Product::getPrice).mapToDouble(Double::doubleValue).sum();
-        BigDecimal totalCost = BigDecimal.valueOf(total);
         OrderDto newOrder = orderMapper.mapToOrderDto(new Order(sb.append(cart.getUser().getUserName()).append("_").
-                append(cart.getId()).toString(),total,cart.getUser(),cart));
+                append(cart.getId()).toString(), total, cart.getUser(), cart));
         orderController.createOrder(newOrder);
     }
 }
