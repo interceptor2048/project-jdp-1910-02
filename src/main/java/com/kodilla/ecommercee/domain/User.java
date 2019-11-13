@@ -13,19 +13,18 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Getter
 @Setter
-@Table (name = "users")
+@Table(name = "users")
 public class User {
-
-    @Column (name="name")
+    @Column(name = "name")
     @NotNull
     private String userName;
 
-    @Column (name = "id")
+    @Column(name = "id")
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     private Long userId;
 
-    @Column (name = "isBlocked")
+    @Column(name = "isBlocked")
     private boolean isBlocked;
 }

@@ -3,7 +3,6 @@ package com.kodilla.ecommercee.mapper;
 import com.kodilla.ecommercee.domain.Product;
 import com.kodilla.ecommercee.domain.dto.ProductDto;
 import org.springframework.stereotype.Component;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +15,9 @@ public class ProductMapper {
                 productDto.getId(),
                 productDto.getName(),
                 productDto.getPrice(),
-                productDto.getDescription());
+                productDto.getDescription(),
+                null,
+                null);
     }
 
     public ProductDto mapToProductDto(final Product product) {

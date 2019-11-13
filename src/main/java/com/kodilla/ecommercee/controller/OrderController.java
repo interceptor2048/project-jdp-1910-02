@@ -9,22 +9,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/order")
+@RequestMapping("/v1/ecommercee/order")
 public class OrderController {
-
-
     @Autowired
     OrderService orderService;
 
     @Autowired
     OrderMapper orderMapper;
 
-    @RequestMapping(method = RequestMethod.GET, value = "getOrders")
+    @GetMapping(path = "/getOrders")
     public List<OrderDto> getOrders() {
         return orderMapper.mapToOrderDtoList(orderService.getOrders());
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createOrder", consumes = "application/json")
+    @PostMapping(path = "/createOrder", consumes = "application/json")
     public void createOrder(@RequestBody OrderDto orderDto) {
         orderService.saveOrder(orderMapper.mapToOrder(orderDto));
     }
@@ -34,12 +32,12 @@ public class OrderController {
         return orderMapper.mapToOrderDto(orderService.getOrder(orderId).orElseThrow(NotFoundException::new));
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "updateOrder")
+    @PutMapping(path = "/updateOrder")
     public OrderDto updateOrder(@RequestBody OrderDto orderDto) {
         return orderMapper.mapToOrderDto(orderService.saveOrder(orderMapper.mapToOrder(orderDto)));
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
+    @DeleteMapping(path = "/deleteOrder")
     public void deleteOrder(@RequestParam Long orderId) {
         orderService.deleteOrder(orderId);
     }
