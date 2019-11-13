@@ -29,8 +29,7 @@ public class Cart {
     @OneToMany(mappedBy = "cart")
     private List<Product> products;
 
-    public Cart(long id, User user) {
-        this.id = id;
+    public Cart(User user) {
         this.user = user;
         this.products = new ArrayList<>();
     }
