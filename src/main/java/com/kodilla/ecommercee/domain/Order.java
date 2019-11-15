@@ -32,4 +32,11 @@ public class Order {
     @OneToOne
     @JoinColumn(name = "cart_id")
     private Cart cart;
+
+    public Order(String title, double totalCost, User user, Cart cart) {
+        this.title = title;
+        this.totalCost = totalCost;
+        this.user = user;
+        this.cart = cart;
+    }
 }

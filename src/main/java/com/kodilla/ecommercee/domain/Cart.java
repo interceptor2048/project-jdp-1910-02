@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Getter;
@@ -9,6 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
@@ -28,8 +30,7 @@ public class Cart {
     @OneToMany(mappedBy = "cart")
     private List<Product> products;
 
-    public Cart(long id, User user) {
-        this.id = id;
+    public Cart(User user) {
         this.user = user;
         this.products = new ArrayList<>();
     }
