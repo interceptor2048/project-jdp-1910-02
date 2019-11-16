@@ -91,34 +91,4 @@ public class CartTestSuite {
         //Then
         assertEquals(products, 2);
     }
-
-    @Test
-    public void shouldSetId() {
-        //Given
-
-
-        //When
-
-        //Then
-    }
-
-    @Test
-    public void shouldSetUser() {
-        //Given
-
-        //When
-
-        //Then
-
-    }
-
-    @Test
-    public void shouldSetProducts() {
-        //Given
-
-        //When
-
-        //Then
-
-    }
 }
