@@ -46,4 +46,23 @@ public class Product {
         this.productGroup = productGroup;
         this.cart = cart;
     }
+
+    public Product(@NotNull String name, @NotNull double price, String description, Group productGroup) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.productGroup = productGroup;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                ", productGroup=" + productGroup +
+                ", cart=" + cart +
+                '}';
+    }
 }
