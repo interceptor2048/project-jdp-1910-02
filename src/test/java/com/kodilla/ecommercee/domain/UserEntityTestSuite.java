@@ -41,9 +41,9 @@ public class UserEntityTestSuite {
     @Test
     public void testGetAllUsers() {
         //Given
-        User john = new User("John",2313L,false);
-        User rick = new User("Rick",213L,false);
-        User piotr = new User("Piotr",3L,false);
+        User john = new User("John",false);
+        User rick = new User("Rick",false);
+        User piotr = new User("Piotr",false);
         userService.saveUser(john);
         userService.saveUser(rick);
         userService.saveUser(piotr);
@@ -55,16 +55,17 @@ public class UserEntityTestSuite {
     @Test
     public void findUserTest() {
         //Given
-        User john = new User("John",2313L,false);
-        User rick = new User("Rick",213L,false);
-        User piotr = new User("Piotr",3L,false);
+        User john = new User("John",false);
+        User rick = new User("Rick",false);
+        User piotr = new User("Piotr",false);
         userService.saveUser(john);
         userService.saveUser(rick);
         userService.saveUser(piotr);
         //When
-        long findRick = rick.getUserId();
+        long isRick = rick.getUserId();
+        long findRick = userService.findUser(isRick).get().getUserId();
         //Then
-        Assert.assertEquals(213L,findRick);
+        Assert.assertEquals(isRick,findRick);
     }
 
 }

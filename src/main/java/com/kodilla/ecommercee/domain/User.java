@@ -27,4 +27,9 @@ public class User {
 
     @Column(name = "isBlocked")
     private boolean isBlocked;
+
+    public User(@NotNull String userName, boolean isBlocked) {
+        this.userName = userName;
+        this.isBlocked = isBlocked;
+    }
 }
