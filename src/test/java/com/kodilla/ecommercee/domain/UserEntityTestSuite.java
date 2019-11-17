@@ -31,7 +31,6 @@ public class UserEntityTestSuite {
     public void testNewUser() {
         //Given
         User tom = new User("Tom",1L,false);
-
         userService.saveUser(tom);
         //When
         long checkId = tom.getUserId();
@@ -41,6 +40,7 @@ public class UserEntityTestSuite {
 
     @Test
     public void testGetAllUsers() {
+        //Given
         User john = new User("John",2313L,false);
         User rick = new User("Rick",213L,false);
         User piotr = new User("Piotr",3L,false);
@@ -54,6 +54,7 @@ public class UserEntityTestSuite {
     }
     @Test
     public void findUserTest() {
+        //Given
         User john = new User("John",2313L,false);
         User rick = new User("Rick",213L,false);
         User piotr = new User("Piotr",3L,false);

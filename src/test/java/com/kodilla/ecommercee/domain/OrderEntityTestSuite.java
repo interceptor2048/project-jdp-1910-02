@@ -32,7 +32,6 @@ public class OrderEntityTestSuite {
     public void saveOrderTest() {
         //Given
         Order first = new Order(1L,"First",200.0,null,null);
-
         orderService.saveOrder(first);
         //When
         long checkInDatabase = first.getId();
@@ -46,7 +45,6 @@ public class OrderEntityTestSuite {
         Order first = new Order(1L,"First",100.0,null,null);
         Order second = new Order(2L,"Second",200.0,null,null);
         Order third = new Order(3L,"Third",300.0,null,null);
-
         orderService.saveOrder(first);
         orderService.saveOrder(second);
         orderService.saveOrder(third);
@@ -63,7 +61,6 @@ public class OrderEntityTestSuite {
         Order firt = new Order(1L,"First",100.0,null,null);
         Order second = new Order(2L,"Second",200.0,null,null);
         Order third = new Order(3L,"Third",300.0,null,null);
-
         orderService.saveOrder(firt);
         orderService.saveOrder(second);
         orderService.saveOrder(third);
