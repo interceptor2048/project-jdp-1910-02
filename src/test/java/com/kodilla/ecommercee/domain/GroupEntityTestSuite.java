@@ -28,7 +28,7 @@ public class GroupEntityTestSuite {
     }
 
     @Test
-    public void saveToDb() {
+    public void testSaveToDb() {
         //Given
         Group agd = new Group("agd", "grupa ze sprzętami agd");
         Group rtv = new Group("rtv", "grupa ze sprzętami rtv");
@@ -45,7 +45,7 @@ public class GroupEntityTestSuite {
     }
 
     @Test
-    public void getGroup() {
+    public void testGetGroup() {
         //Given
         Group agd = new Group("agd", "grupa ze sprzętami agd");
         Group rtv = new Group("rtv", "grupa ze sprzętami rtv");
@@ -58,7 +58,7 @@ public class GroupEntityTestSuite {
     }
 
     @Test
-    public void getAllGroups() {
+    public void testGetAllGroups() {
         //Given
         Group agd = new Group("agd", "grupa ze sprzętami agd");
         Group rtv = new Group("rtv", "grupa ze sprzętami rtv");
