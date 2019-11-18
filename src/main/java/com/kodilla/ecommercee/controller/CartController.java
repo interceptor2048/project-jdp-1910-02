@@ -1,14 +1,11 @@
 package com.kodilla.ecommercee.controller;
 
-import com.kodilla.ecommercee.controller.exception.NotFoundException;
 import com.kodilla.ecommercee.domain.Cart;
 import com.kodilla.ecommercee.domain.dto.CartDto;
 import com.kodilla.ecommercee.domain.dto.ProductDto;
 import com.kodilla.ecommercee.mapper.CartMapper;
-import com.kodilla.ecommercee.mapper.OrderMapper;
 import com.kodilla.ecommercee.mapper.ProductMapper;
 import com.kodilla.ecommercee.service.CartService;
-import com.kodilla.ecommercee.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +36,7 @@ public class CartController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "addToCart", consumes = "application/json")
     public void addToCart(@RequestParam Long cartId, @RequestBody ProductDto productDto) {
-        cartService.addProduct(cartId,productMapper.mapToProduct(productDto));
+        cartService.addProduct(cartId, productMapper.mapToProduct(productDto));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteFromCart")

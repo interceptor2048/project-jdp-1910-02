@@ -4,7 +4,6 @@ import com.kodilla.ecommercee.repository.CartRepository;
 import com.kodilla.ecommercee.service.CartService;
 import com.kodilla.ecommercee.service.ProductService;
 import org.h2.tools.Server;
-import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.transaction.Transactional;
 import java.sql.SQLException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @Transactional
 @SpringBootTest
@@ -96,6 +95,6 @@ public class CartTestSuite {
         cartService.addProduct(id, radio);
         int products = cartService.getProducts(id).size();
         //Then
-        assertEquals(products, 2);
+        assertEquals(2, products);
     }
 }
