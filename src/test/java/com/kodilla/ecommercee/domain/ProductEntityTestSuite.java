@@ -29,7 +29,7 @@ public class ProductEntityTestSuite {
     @BeforeClass
     public static void initTest() throws SQLException {
         Server webServer = Server.createWebServer("-web",
-                "-webAllowOthers", "-webPort", "8082");
+                "-webAllowOthers", "-webPort", "8084");
         webServer.start();
     }
 

@@ -2,9 +2,7 @@ package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.service.GroupService;
 import org.h2.tools.Server;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,25 +21,27 @@ public class GroupEntityTestSuite {
     @BeforeClass
     public static void initTest() throws SQLException {
         Server webServer = Server.createWebServer("-web",
-                "-webAllowOthers", "-webPort", "8082");
+                "-webAllowOthers", "-webPort", "8083");
         webServer.start();
     }
 
     @Test
     public void testSaveToDb() {
         //Given
+        int initialAmountOfGroups = groupService.getAllGroups().size();
         Group agd = new Group("agd", "grupa ze sprzętami agd");
         Group rtv = new Group("rtv", "grupa ze sprzętami rtv");
         groupService.saveGroup(agd);
         groupService.saveGroup(rtv);
         //When
-        int amountOfGroups = groupService.getAllGroups().size();
+        int amountOfGroups = groupService.getAllGroups().size() - initialAmountOfGroups;
         long agdId = agd.getId();
         long rtvId = rtv.getId();
         //Then
         System.out.println("ID grupy agd : " + agdId);
         System.out.println("ID grupy rtv : " + rtvId);
         Assert.assertEquals(2, amountOfGroups);
+
     }
 
     @Test
@@ -60,6 +60,7 @@ public class GroupEntityTestSuite {
     @Test
     public void testGetAllGroups() {
         //Given
+        int initialAmountOfGroups = groupService.getAllGroups().size();
         Group agd = new Group("agd", "grupa ze sprzętami agd");
         Group rtv = new Group("rtv", "grupa ze sprzętami rtv");
         Group computers = new Group("computer", "grupa z komputerami");
@@ -69,6 +70,6 @@ public class GroupEntityTestSuite {
         //When
         List<Group> allGroups = groupService.getAllGroups();
         //Then
-        Assert.assertEquals(3, allGroups.size());
+        Assert.assertEquals(3, allGroups.size() - initialAmountOfGroups);
     }
 }

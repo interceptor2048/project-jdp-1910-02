@@ -4,6 +4,7 @@ import com.kodilla.ecommercee.repository.CartRepository;
 import com.kodilla.ecommercee.service.CartService;
 import com.kodilla.ecommercee.service.ProductService;
 import org.h2.tools.Server;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +36,12 @@ public class CartTestSuite {
                 "-webAllowOthers", "-webPort", "8082");
         webServer.start();
     }
+
+//    @AfterClass
+//    public static void endTest() throws SQLException {
+//        Server.shutdownTcpServer("jdbc:h2:localhost:8082",
+//                "", true, true);
+//    }
 
     @Test
     public void shouldGetId() {
