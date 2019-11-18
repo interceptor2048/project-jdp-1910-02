@@ -27,7 +27,7 @@ public class Cart {
     @JoinColumn(name = "username")
     private User user;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
     private List<Product> products;
 
     public Cart(User user) {
