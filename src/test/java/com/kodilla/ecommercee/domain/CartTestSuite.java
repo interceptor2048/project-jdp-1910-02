@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.transaction.Transactional;
 import java.sql.SQLException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @Transactional
 @SpringBootTest
@@ -35,6 +35,12 @@ public class CartTestSuite {
                 "-webAllowOthers", "-webPort", "8082");
         webServer.start();
     }
+
+//    @AfterClass
+//    public static void endTest() throws SQLException {
+//        Server.shutdownTcpServer("jdbc:h2:localhost:8082",
+//                "", true, true);
+//    }
 
     @Test
     public void shouldGetId() {
@@ -89,6 +95,6 @@ public class CartTestSuite {
         cartService.addProduct(id, radio);
         int products = cartService.getProducts(id).size();
         //Then
-        assertEquals(products, 2);
+        assertEquals(2, products);
     }
 }
